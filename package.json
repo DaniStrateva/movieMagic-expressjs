@@ -1,0 +1,22 @@
+{
+  "name": "moviemagic-expressjs",
+  "version": "1.0.0",
+  "description": "Movie Magic Workshop SoftUni",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev":"node --watch src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DaniStrateva/movieMagic-expressjs.git"
+  },
+  "keywords": [],
+  "type":"module",
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DaniStrateva/movieMagic-expressjs/issues"
+  },
+  "homepage": "https://github.com/DaniStrateva/movieMagic-expressjs#readme"
+}
