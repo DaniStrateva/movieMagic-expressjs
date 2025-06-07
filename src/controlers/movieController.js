@@ -7,7 +7,18 @@ const movieController = express.Router();
 //check index.js
 movieController.get('/create',(req,res)=>{
     res.render('create');
-})
+});
+
+
+movieController.post('/create',(req,res)=>{
+    //index.js add body parser
+    const newMovie = req.body;
+
+    //save new movie
+
+    //redirect to home page
+
+});
 
 
 export default movieController;

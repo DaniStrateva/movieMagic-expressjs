@@ -9,6 +9,9 @@ const app = express();
 //add static folder (middleware) - checks if static file exists
 app.use(express.static('./src/public'));
 
+//Add body parser for req.body (middleware)
+app.use(express.urlencoded());
+
 //use factory method for express engine
 app.engine('hbs',handlebars.engine({
     extname: 'hbs',
