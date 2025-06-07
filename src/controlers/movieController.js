@@ -32,7 +32,14 @@ movieController.get('/:movieId/details',(req,res)=>{
 
     //show details page
     res.render('details',);
-})
+});
+movieController.get('/search',(req,res)=>{
+    //get all movies
+const movies = movieService.getAllMovies();
+
+    //load search page
+    res.render('search',{movies});
+});
 
 
 export default movieController;
