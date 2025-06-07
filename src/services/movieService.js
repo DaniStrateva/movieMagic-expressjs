@@ -33,9 +33,15 @@ const movies=[ {
     }
 ]
 
-const movieServie =  {
+const movieService =  {
     getAllMovies(){
         return movies;
+    },
+    createMovie(movieData){
+        //have to set unique id for each
+        movies.push(movieData);
+
+        return movieData;
     }
 }
-export default movieServie;
+export default movieService;

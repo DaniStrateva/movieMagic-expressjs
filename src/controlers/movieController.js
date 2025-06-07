@@ -1,4 +1,5 @@
 import express from 'express';
+import movieService from '../services/movieService.js';
 
 const movieController = express.Router();
 
@@ -11,13 +12,15 @@ movieController.get('/create',(req,res)=>{
 
 
 movieController.post('/create',(req,res)=>{
-    //index.js add body parser
+    //index.js add body parser to read data
     const newMovie = req.body;
 
-    //save new movie
+    //save new movie (this logic is for service)
+    movieService.createMovie(newMovie);
 
     //redirect to home page
-
+    res.redirect('/');
+    
 });
 
 
