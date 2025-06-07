@@ -1,3 +1,5 @@
+import { v4 as uuid } from "uuid";
+
 const movies=[ {
         id: "a3682672-0ee4-1284-8759-35ee253329zv",
         title: "Jungle Cuise",
@@ -38,9 +40,13 @@ const movieService =  {
         return movies;
     },
     createMovie(movieData){
-        //have to set unique id for each
+        //set unique id for each
+        movieData.id = uuid();
+
+        //add movie to movies
         movies.push(movieData);
 
+        //return created movie
         return movieData;
     },
     getOne(movieId){
