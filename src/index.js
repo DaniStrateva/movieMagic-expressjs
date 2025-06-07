@@ -29,6 +29,11 @@ app.use(homeController);
 //use controller only when url start with movies
 app.use('/movies',movieController);
 
+//404 page add after controllers
+app.all('*url',(req,res)=>{
+    res.render('404');
+})
+
 
 //initiate express server
 app.listen(5000,()=>console.log('Server is listening on http://localhost:5000...'));
