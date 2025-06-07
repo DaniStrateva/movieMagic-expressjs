@@ -20,8 +20,16 @@ movieController.post('/create',(req,res)=>{
 
     //redirect to home page
     res.redirect('/');
-    
+
 });
+
+movieController.get('/:movieId/details',(req,res)=>{
+    //get movieId from parameters
+    const movieId = req.params.movieId;
+
+    //show details page
+    res.render('details');
+})
 
 
 export default movieController;
