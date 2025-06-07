@@ -8,7 +8,7 @@ const homeController = express.Router();
 homeController.get('/',(req,res)=>{
     const movies=movieService.getAllMovies();
 
-    res.render('home')
+    res.render('home',{movies});
 });
 
 homeController.get('/about',(req,res)=>{
