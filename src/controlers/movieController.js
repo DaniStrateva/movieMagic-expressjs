@@ -27,8 +27,11 @@ movieController.get('/:movieId/details',(req,res)=>{
     //get movieId from parameters
     const movieId = req.params.movieId;
 
+    //use movie service to get the details for each movie
+    const movie = movieService.getOne(movieId);
+
     //show details page
-    res.render('details');
+    res.render('details',);
 })
 
 

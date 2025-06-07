@@ -42,6 +42,10 @@ const movieService =  {
         movies.push(movieData);
 
         return movieData;
+    },
+    getOne(movieId){
+        const movie = movies.find(movie=>movie.id===movieId);
+        return movie;
     }
 }
 export default movieService;
