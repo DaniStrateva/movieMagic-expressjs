@@ -1,6 +1,7 @@
 import express from 'express';
 import handlebars from 'express-handlebars';
 import homeController from './controlers/homeController.js';
+import movieController from './controlers/movieController.js';
 
 //init express instnace
 const app = express();
@@ -22,6 +23,8 @@ app.set('views','./src/views')
 //configure routes
 //using modular router
 app.use(homeController);
+//use controller only when url start with movies
+app.use('/movies',movieController);
 
 
 //initiate express server
