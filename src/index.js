@@ -1,5 +1,6 @@
 import express from 'express';
 import handlebars from 'express-handlebars';
+import homeController from './controlers/homeController.js';
 
 //init express instnace
 const app = express();
@@ -19,13 +20,9 @@ app.set('view engine','hbs');
 app.set('views','./src/views')
 
 //configure routes
-app.get('/',(req,res)=>{
-    res.render('home')
-});
+//using modular router
+app.use(homeController);
 
-app.get('/about',(req,res)=>{
-    res.render('about');
-})
 
 //initiate express server
 app.listen(5000,()=>console.log('Server is listening on http://localhost:5000...'));
