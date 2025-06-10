@@ -36,7 +36,16 @@ const movies=[ {
 ]
 
 const movieService =  {
-    getAllMovies(){
+    getAllMovies(filter={}){
+        let result = movies.slice();
+        //slice return new array with all elements
+        //so we can edit the new array not the original
+
+        if(filter.search){
+            //our search is case sensitive
+            //partial search enable .includes()
+            result = result.filter(movie=>movie.title.toLowerCase().includes(filter.search.toLowerCase()))
+        }
         return movies;
     },
     createMovie(movieData){
@@ -52,6 +61,8 @@ const movieService =  {
     getOne(movieId){
         const movie = movies.find(movie=>movie.id===movieId);
         return movie;
-    }
+    },
+    //we can either make new method to filter search
+    //or we can reuse get all with a filter
 }
 export default movieService;
