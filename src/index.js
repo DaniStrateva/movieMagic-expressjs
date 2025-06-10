@@ -15,6 +15,13 @@ app.use(express.urlencoded());
 //use factory method for express engine
 app.engine('hbs',handlebars.engine({
     extname: 'hbs',
+    //add helpers for rating
+    helpers:{
+        showRating(rating){
+            return '&#x2605;'.repeat(Math.floor(rating));
+            //use {{{}}} in details.hbs to get stars
+        }
+    }
 }));
 
 //set default engine

@@ -30,8 +30,11 @@ movieController.get('/:movieId/details',(req,res)=>{
     //use movie service to get the details for each movie
     const movie = movieService.getOne(movieId);
 
+    //include rating using hbs custom helpers
+    
+
     //show details page
-    res.render('details',);
+    res.render('details',{movie});
 });
 movieController.get('/search',(req,res)=>{
     //get query string
