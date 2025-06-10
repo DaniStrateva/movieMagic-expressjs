@@ -49,6 +49,10 @@ const movieService =  {
         if(filter.genre){
             result = result.filter(movie=>movie.genre.toLowerCase()===filter.genre.toLowerCase());
         }
+
+        if(filter.year){
+            result = result.filter(movie=>movie.year===filter.year);
+        }
         return result;
     },
     createMovie(movieData){
