@@ -58,6 +58,8 @@ const movieService =  {
     createMovie(movieData){
         //set unique id for each
         movieData.id = uuid();
+        //make sure rating is a number not string
+        movieData.rating=Number(moviesData.rating);
 
         //add movie to movies
         movies.push(movieData);
