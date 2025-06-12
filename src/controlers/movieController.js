@@ -11,12 +11,13 @@ movieController.get('/create',(req,res)=>{
 });
 
 
-movieController.post('/create',(req,res)=>{
+//astnchronous, we await create in order to save and redirect
+movieController.post('/create',async(req,res)=>{
     //index.js add body parser to read data
     const newMovie = req.body;
 
     //save new movie (this logic is for service)
-    movieService.createMovie(newMovie);
+    await movieService.createMovie(newMovie);
 
     //redirect to home page
     res.redirect('/');
