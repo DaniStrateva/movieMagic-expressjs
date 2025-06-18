@@ -41,11 +41,11 @@ movieController.get('/search',(req,res)=>{
     //get query string
     const filter = req.query;
 
-    //get all movies
+    //get all movies with this filter
 const movies = movieService.getAllMovies(filter);
 
-    //load search page
-    res.render('search',{movies});
+    //load search page again 
+    res.render('search',{movies, filter});
 });
 
 
