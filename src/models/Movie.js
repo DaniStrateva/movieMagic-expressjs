@@ -1,4 +1,23 @@
-import fs from 'node:fs/promises'
+import mongoose from "mongoose";
+
+const movieSchema = new Schema({
+    title: String,
+    category: String,
+    genre: String,
+    director: String,
+    year: Number,
+    imageUrl: String,
+    reating: Number,
+    description: String,
+});
+
+//generate class movie
+const Movie = model('Movie',movieSchema);
+
+export default Movie
+
+
+/*import fs from 'node:fs/promises'
 
 //class
 //loads asynchronous first time
@@ -26,4 +45,4 @@ export default class Movie {
         //return modified data
         return this.data;
     }
-}
+}*/
