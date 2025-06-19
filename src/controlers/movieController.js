@@ -37,12 +37,12 @@ movieController.get('/:movieId/details',(req,res)=>{
     //show details page
     res.render('details',{movie});
 });
-movieController.get('/search',(req,res)=>{
+movieController.get('/search',async (req,res)=>{
     //get query string
     const filter = req.query;
 
     //get all movies with this filter
-const movies = movieService.getAllMovies(filter);
+const movies = await movieService.getAllMovies(filter);
 
     //load search page again 
     res.render('search',{movies, filter});

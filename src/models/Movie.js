@@ -1,6 +1,9 @@
 import mongoose from "mongoose";
+//or can do import {Schema, model} from "mongoose";
+//and then just do new Schema (not mongoose.Schema);
+//and =model instead of =mongoose.model
 
-const movieSchema = new Schema({
+const movieSchema = new mongoose.Schema({
     title: String,
     category: String,
     genre: String,
@@ -12,7 +15,7 @@ const movieSchema = new Schema({
 });
 
 //generate class movie
-const Movie = model('Movie',movieSchema);
+const Movie = mongoose.model('Movie',movieSchema);
 
 export default Movie
 

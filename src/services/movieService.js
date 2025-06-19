@@ -1,10 +1,9 @@
 import { v4 as uuid } from "uuid";
 import Movie from "../models/Movie.js";
-import {movies} from '../models/Movie.js'
 
 const movieService =  {
-    getAllMovies(filter={}){
-        let result = movies.slice();
+    async getAllMovies(filter={}){
+        let result = await Movie.find({}).lean();
         //slice return new array with all elements
         //so we can edit the new array not the original
 
@@ -24,11 +23,7 @@ const movieService =  {
     },
     createMovie(movieData){
         const movie=new Movie(movieData);
-        
-        //add movie to movies
-        //movies.push(movieData);
- 
-        //return created movie
+        //.save() returns async has to be awaited
         return movie.save();
     },
     getOne(movieId){

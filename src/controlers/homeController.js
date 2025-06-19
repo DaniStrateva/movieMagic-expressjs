@@ -5,9 +5,9 @@ import movieService from '../services/movieService.js';
 const homeController = express.Router();
 
 
-homeController.get('/',(req,res)=>{
-    const movies=movieService.getAllMovies();
-
+homeController.get('/',async (req,res)=>{
+    const movies=await movieService.getAllMovies();
+    //handlebars cant work directly with mongoose docs
     res.render('home',{movies});
 });
 
