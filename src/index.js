@@ -3,6 +3,7 @@ import handlebars from 'express-handlebars';
 import homeController from './controlers/homeController.js';
 import movieController from './controlers/movieController.js';
 import mongoose from 'mongoose';
+import castController from './controlers/castController.js';
 
 //init express instnace
 const app = express();
@@ -51,6 +52,9 @@ app.set('views','./src/views')
 app.use(homeController);
 //use controller only when url start with movies
 app.use('/movies',movieController);
+
+//add cast controller
+app.use('/casts',castController);
 
 //404 page add after controllers
 app.all('*url',(req,res)=>{
