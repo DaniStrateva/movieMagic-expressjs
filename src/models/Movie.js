@@ -2,16 +2,44 @@ import mongoose from "mongoose";
 //or can do import {Schema, model} from "mongoose";
 //and then just do new Schema (not mongoose.Schema);
 //and =model instead of =mongoose.model
-
+const maxYearAllowed = new Date().getFullYear() + 5;
 const movieSchema = new mongoose.Schema({
-    title: String,
-    category: String,
-    genre: String,
-    director: String,
-    year: Number,
-    imageUrl: String,
-    reating: Number,
-    description: String,
+    title:{
+        type:String,
+        required:[true, 'Title is required.']
+    },
+    category:{
+        type:String,
+        required:[true, 'Category is required.']
+    },
+    genre:{
+        type:String,
+        required:[true, 'Genre is required.']
+    },
+    director:{
+        type:String,
+        required:[true, 'Director is required.']
+    },
+    year:{
+        type:Number,
+        required:[true, 'Year is required.'],
+        min:1970,
+        //max data is current plus 5 years dynamic
+        max:[maxYearAllowed, `Year cannot be after ${maxYearAllowed}`],
+    },
+    imageUrl:{
+        type:String,
+        required:[true, 'Poster is required.']
+    },
+    reating:{
+        type:Number,
+        required:[true, 'Rating is required.']
+    },
+    description:{
+        type:String,
+        required:[true, 'Description is required.'],
+        maxLength:[200,'Description is too long!']
+    },
 });
 
 //generate class movie
