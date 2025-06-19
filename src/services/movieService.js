@@ -6,6 +6,7 @@ const movieService =  {
         let result = await Movie.find({}).lean();
         //slice return new array with all elements
         //so we can edit the new array not the original
+        //console.log(result)
 
         if(filter.search){
             //our search is case sensitive
@@ -26,10 +27,15 @@ const movieService =  {
         //.save() returns async has to be awaited
         return movie.save();
     },
-    getOne(movieId){
-        const movie = movies.find(movie=>movie.id===movieId);
+    async getOne(movieId){
+        const movie = await Movie.findById(movieId).lean();
         return movie;
+
+        //we can not use async await if we write it as:
+        //return movie = Movie.findById({movieId})
+        //since already returns promise
     },
+
     //we can either make new method to filter search
     //or we can reuse get all with a filter
 }

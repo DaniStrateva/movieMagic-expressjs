@@ -22,7 +22,12 @@ app.engine('hbs',handlebars.engine({
             return '&#x2605;'.repeat(Math.floor(rating));
             //use {{{}}} in details.hbs to get stars
         }
-    }
+    },
+    //allow handlebars to use prototype methods and properties of mongoose doc
+    /*runtimeOptions:{
+        allowProtoMethodsByDefault: true,
+        allowProtoPropertiesByDefault: true,
+    }*/
 }));
 
 //connect database 

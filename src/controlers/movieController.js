@@ -24,15 +24,14 @@ movieController.post('/create',async(req,res)=>{
 
 });
 
-movieController.get('/:movieId/details',(req,res)=>{
+movieController.get('/:movieId/details', async (req,res)=>{
     //get movieId from parameters
     const movieId = req.params.movieId;
 
     //use movie service to get the details for each movie
-    const movie = movieService.getOne(movieId);
+    const movie = await movieService.getOne(movieId);
 
     //include rating using hbs custom helpers
-    
 
     //show details page
     res.render('details',{movie});
