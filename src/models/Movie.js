@@ -32,11 +32,13 @@ const movieSchema = new mongoose.Schema({
         type:String,
         required:[true, 'Poster is required.'],
         //imageUrl validation with redex
-        validate: /^https?:\/\//,
+        validate: [/^https?:\/\//, 'Invalid Image URL'],
     },
     reating:{
         type:Number,
-        required:[true, 'Rating is required.']
+        required:[true, 'Rating is required.'],
+        min:[1,'Rating has to be 1 or more.'],
+        max:[10, 'Rating has to be 10 or less']
     },
     description:{
         type:String,
