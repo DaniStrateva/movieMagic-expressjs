@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { validate } from "uuid";
 //or can do import {Schema, model} from "mongoose";
 //and then just do new Schema (not mongoose.Schema);
 //and =model instead of =mongoose.model
@@ -29,7 +30,9 @@ const movieSchema = new mongoose.Schema({
     },
     imageUrl:{
         type:String,
-        required:[true, 'Poster is required.']
+        required:[true, 'Poster is required.'],
+        //imageUrl validation with redex
+        validate: /^https?:\/\//,
     },
     reating:{
         type:Number,
