@@ -14,6 +14,7 @@ const castSchema = new Schema({
     born:{
         type: String,
         required: true,
+        
     },
     imageUrl:{
         type: String,
