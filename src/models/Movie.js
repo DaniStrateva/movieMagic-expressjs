@@ -5,53 +5,52 @@ import { validate } from "uuid";
 //and =model instead of =mongoose.model
 const maxYearAllowed = new Date().getFullYear() + 5;
 const movieSchema = new mongoose.Schema({
-    title:{
-        type:String,
-        required:[true, 'Title is required.']
-    },
-    category:{
-        type:String,
-        required:[true, 'Category is required.']
-    },
-    genre:{
-        type:String,
-        required:[true, 'Genre is required.']
-    },
-    director:{
-        type:String,
-        required:[true, 'Director is required.']
-    },
-    year:{
-        type:Number,
-        required:[true, 'Year is required.'],
-        min:1970,
-        //max data is current plus 5 years dynamic
-        max:[maxYearAllowed, `Year cannot be after ${maxYearAllowed}`],
-    },
-    imageUrl:{
-        type:String,
-        required:[true, 'Poster is required.'],
-        //imageUrl validation with redex
-        validate: [/^https?:\/\//, 'Invalid Image URL'],
-    },
-    reating:{
-        type:Number,
-        required:[true, 'Rating is required.'],
-        min:[1,'Rating has to be 1 or more.'],
-        max:[10, 'Rating has to be 10 or less']
-    },
-    description:{
-        type:String,
-        required:[true, 'Description is required.'],
-        maxLength:[200,'Description is too long!']
-    },
+  title: {
+    type: String,
+    required: [true, "Title is required."],
+  },
+  category: {
+    type: String,
+    required: [true, "Category is required."],
+  },
+  genre: {
+    type: String,
+    required: [true, "Genre is required."],
+  },
+  director: {
+    type: String,
+    required: [true, "Director is required."],
+  },
+  year: {
+    type: Number,
+    required: [true, "Year is required."],
+    min: 1970,
+    //max data is current plus 5 years dynamic
+    max: [maxYearAllowed, `Year cannot be after ${maxYearAllowed}`],
+  },
+  imageUrl: {
+    type: String,
+    required: [true, "Poster is required."],
+    //imageUrl validation with redex
+    validate: [/^https?:\/\//, "Invalid Image URL"],
+  },
+  reating: {
+    type: Number,
+    required: [true, "Rating is required."],
+    min: [1, "Rating has to be 1 or more."],
+    max: [10, "Rating has to be 10 or less"],
+  },
+  description: {
+    type: String,
+    required: [true, "Description is required."],
+    maxLength: [200, "Description is too long!"],
+  },
 });
 
 //generate class movie
-const Movie = mongoose.model('Movie',movieSchema);
+const Movie = mongoose.model("Movie", movieSchema);
 
-export default Movie
-
+export default Movie;
 
 /*import fs from 'node:fs/promises'
 
