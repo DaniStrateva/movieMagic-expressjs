@@ -60,5 +60,14 @@ movieController.get('/:movieId/attach',async(req,res)=>{
   res.render('movie/attach', {movie, casts})
 
 });
+movieController.post('/:movieId/attach', async(req,res)=>{
+  //get cast id
+  const movieId = req.params.movieId;
+  //get case id (req.body is object cast and id) parsed data
+  const castId = req.body.cast;
+
+  //attach cast to movie
+  
+});
 
 export default movieController;
