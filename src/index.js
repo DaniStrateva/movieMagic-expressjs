@@ -27,10 +27,10 @@ app.engine(
       },
     },
     //allow handlebars to use prototype methods and properties of mongoose doc
-    /*runtimeOptions:{
+    runtimeOptions:{
         allowProtoMethodsByDefault: true,
         allowProtoPropertiesByDefault: true,
-    }*/
+    }
   })
 );
 

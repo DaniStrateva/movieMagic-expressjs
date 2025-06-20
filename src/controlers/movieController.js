@@ -1,5 +1,6 @@
 import express from "express";
 import movieService from "../services/movieService.js";
+import castService from "../services/castService.js";
 
 const movieController = express.Router();
 
@@ -45,12 +46,18 @@ movieController.get("/search", async (req, res) => {
   res.render("search", { movies, filter });
 });
 
+//oad movie attach page
 movieController.get('/:movieId/attach',async(req,res)=>{
+  //get the movie id
   const movieId = req.params.movieId;
-  //get movie
+  //get movie by using movie service 
   const movie = await movieService.getOne(movieId);
 
-  res.render('movie/attach',{movie})
+  //get all casts
+  const casts = await castService.getAll()
+  console.log(casts)
+  //pass all casts to template in render
+  res.render('movie/attach', {movie, casts})
 
 });
 
